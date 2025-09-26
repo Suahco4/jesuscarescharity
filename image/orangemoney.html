@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head><title>Orange Money Payment</title></head>
+<body>
+  <h1>Pay with Orange Money</h1>
+  <form id="paymentForm">
+    <input type="number" id="amount" placeholder="Amount (e.g., 1000)" required>
+    <input type="tel" id="phone" placeholder="Phone (e.g., +231 777 777 777)" required>
+    <button type="submit">Pay Now</button>
+  </form>
+
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const amount = document.getElementById('amount').value;
+      const phone = document.getElementById('phone').value;
+
+      try {
+        const response = await fetch('/create-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount, customerPhone: phone })
+        });
+        const data = await response.json();
+
+        if (data.success) {
+          // Redirect to Orange's payment page
+          window.location.href = data.paymentUrl;
+        }
+      } catch (error) {
+        alert('Error creating session');
+      }
+    });
+  </script>
+</body>
+</html>
