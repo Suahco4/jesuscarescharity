@@ -620,8 +620,25 @@ $('#registerLink').on('click', function(e) {
 <script>
   // TODO: Replace with your Firebase project config
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBQO5gYKsnaUqyeVo10NdRQEGHNcOeT_LE",
+    authDomain: "jesus-cares-2d45c.firebaseapp.com",
+    projectId: "jesus-cares-2d45c",
+    storageBucket: "jesus-cares-2d45c.firebasestorage.app",
+    messagingSenderId: "64352364487",
+    appId: "1:64352364487:web:64389f8fa89c65ac7f5be2"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
     // ...other config...
   };
   firebase.initializeApp(firebaseConfig);
