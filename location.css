@@ -1,0 +1,75 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    color: #333;
+    padding: 20px;
+    opacity: 100%;
+}
+
+/* Header */
+header {
+    text-align: center;
+    background: linear-gradient(to left, #485461, #e4e73a, #e4ae1c);
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Map section */
+#map-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#map {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    border: 2px solid #007BFF;
+    transition: transform 0.3s ease; /* For JS animation */
+}
+
+#zoom-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#zoom-btn:hover {
+    background-color: #218838;
+}
+
+#distance {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    #map {
+        height: 300px;
+    }
+}
