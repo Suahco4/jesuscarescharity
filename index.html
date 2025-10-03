@@ -67,7 +67,40 @@
 				</div>
 			</header>
 			<!-- End Header Area -->
+<!-- Add this to the <head> of your HTML file -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 
+<!-- Your Gallery HTML Structure -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <!-- Add your images inside "swiper-slide" divs -->
+    <div class="swiper-slide">
+      <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=Image+1" alt="Description of Image 1">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://via.placeholder.com/800x400/33A2FF/FFFFFF?text=Image+2" alt="Description of Image 2">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://via.placeholder.com/800x400/33FF57/FFFFFF?text=Image+3" alt="Description of Image 3">
+    </div>
+    <div class="swiper-slide">
+      <img src="https://via.placeholder.com/800x400/F433FF/FFFFFF?text=Image+4" alt="Description of Image 4">
+    </div>
+  </div>
+
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- Add Navigation -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<!-- Add this script right before your closing </body> tag -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">
 				<div class="overlay overlay-bg"></div>
