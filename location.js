@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let isZoomed = false;
     zoomBtn.addEventListener('click', function() {
         if (isZoomed) {
-            map.style.transform = 'scale(1)';
+            map.style.transform = 'scale(1) translateY(0)';
             isZoomed = false;
             zoomBtn.textContent = 'Zoom In on Map';
         } else {
-            map.style.transform = 'scale(1.2)';
+            map.style.transform = 'scale(1.1) translateY(-5px)';
             isZoomed = true;
             zoomBtn.textContent = 'Zoom Out';
         }

@@ -9,27 +9,32 @@
 </head>
 <body>
     <header>
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
         <h1>Our Location</h1>
         <p>Visit us at our headquarters!</p>
     </header>
 
-    <section id="map-section">
-        <h2>Find Us Here</h2>
-        <iframe id="map" src="https://www.google.com/maps/d/u/1/embed?mid=1_cTHGAZ55jaI4pbG5gFfGVVX8qTzkMw&ehbc=2E312F" width="640" height="480"></iframe>
-        <button id="zoom-btn">Zoom In on Map</button>
-        <p id="distance">Your approximate distance from us: Calculating...</p>
-    </section>
+    <main class="content-wrapper">
+        <section id="map-section">
+            <h2>Find Us Here</h2>
+            <div class="map-container">
+                <iframe id="map" src="https://www.google.com/maps/d/u/1/embed?mid=1_cTHGAZ55jaI4pbG5gFfGVVX8qTzkMw&ehbc=2E312F" width="640" height="480" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <button id="zoom-btn">Zoom In on Map</button>
+            <p id="distance">Your approximate distance from us: Calculating...</p>
+        </section>
+    </main>
 
-    <footer> |
-        <p>Address: Harbel Super Market, Twe Farm, Liberia</p>
-        Phone: 
-        <a href="tel:+231770217021">+231770217021</a> |
-        Email: 
-        <a href="mailto:jesuscarescharity53@gmail.com">jesuscarescharity53@gmail.com</a>
+    <footer>
+        <div class="footer-content">
+            <p>Address: Harbel Super Market, Twe Farm, Liberia</p>
+            <p>
+                Phone: <a href="tel:+231770217021">+231 770 217 021</a> |
+                Email: <a href="mailto:jesuscarescharity53@gmail.com" class="email-link">jesuscarescharity53@gmail.com</a>
+            </p>
+        </div>
     </footer>
 
     <script src="location.js"></script>
 </body>
-
 </html>
-
