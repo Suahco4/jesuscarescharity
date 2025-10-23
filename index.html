@@ -28,12 +28,12 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 			
     <!-- sitemap -->
 			<meta name="google-site-verification" content="G7BuOIYOIZXcZPo1XZCv1ZejK0dYdBrPd8gE8QXV8TM" />
 </head>
 		<body>
-
 			<!-- Start Header Area -->
 			<header class="default-header">
 				<div class="container">
@@ -41,19 +41,21 @@
 						<div class="header-top d-flex justify-content-between align-items-center">
 							<div class="logo">
 								<a href="#home" title="Go to Home">
-									<img src="img/logo.png" alt="Organization logo">
+									<img src="img/logo.png" alt="Jesus Cares Charity logo">
 									<h2 class="logo-title">Jesus Cares Charity</h2>
 								</a>
 							</div>
 							<div class="main-menubar d-flex align-items-center">
-    <nav id="mainNav">
+    <nav id="mainNav" class="hide mobile-menu">
         <a href="#home">Home</a>
         <a href="projects.html">Projects</a>
         <a href="#about">About</a>
         <a href="#donate">Donate</a>
 		<a href="#contact">Contact</a>
     </nav>
-    <div class="menu-bar" id="menuBar" role="button" aria-label="Toggle mobile menu"><span class="lnr lnr-menu"></span></div>
+    <button class="menu-bar" id="menuBar" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mainNav">
+        <span class="lnr lnr-menu"></span>
+    </button>
 </div>
 						</div>
 					</div>
@@ -64,7 +66,7 @@
 <!-- start banner Area -->
 			<section class="banner-area relative" id="home">
 				<div class="overlay overlay-bg"></div>
-				<div class="container">
+				<div class="container" data-aos="fade-in">
 						<div class="row fullscreen align-items-center justify-content-start banner-row-height">
 							<div class="banner-content col-lg-9 col-md-12">
 								<h1>
@@ -82,10 +84,10 @@
 			<section class="about-area" id="about">
 				<div class="container-fluid">
 					<div class="row d-flex justify-content-end align-items-center">
-						<div class="col-lg-6 col-md-12 about-left no-padding">
-							<img class="img-fluid" src="img/about-img.jpg" alt="About Photo">
+						<div class="col-lg-6 col-md-12 about-left no-padding" data-aos="fade-right">
+							<img class="img-fluid" src="img/about-img.jpg" alt="A close-up of several hands of different skin tones stacked together in unity.">
 						</div>
-						<div class="col-lg-6 col-md-12 about-right">
+						<div class="col-lg-6 col-md-12 about-right" data-aos="fade-left">
 							<h1 class="text-white">
 								A Heart for the Helpless,<br>
 								A Hope for the Future
@@ -129,7 +131,7 @@
 			<section class="project-area section-gap" id="project">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
-						<div class="col-md-8 pb-80 header-text">
+						<div class="col-md-8 pb-80 header-text" data-aos="fade-up">
 							<h1>They need your Help</h1>
 							<p>
 							Forgotten children, starving families, and broken dreams haunt its pages. Each click reveals heart-wrenching stories of loss and longing. <br />Will you turn away, or extend a hand to mend the world's quiet sorrows?
@@ -137,7 +139,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-4 col-md-6 project-wrap">
+						<div class="col-lg-4 col-md-6 project-wrap" data-aos="fade-up" data-aos-delay="100">
 							<div class="single-project">
 								<a href="projects.html" title="View project details">
 									<div class="content">
@@ -150,7 +152,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6 project-wrap">
+						<div class="col-lg-4 col-md-6 project-wrap" data-aos="fade-up" data-aos-delay="200">
 							<div class="single-project">
 								<a href="projects.html" title="View project details">
 									<div class="content">
@@ -163,7 +165,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6 project-wrap">
+						<div class="col-lg-4 col-md-6 project-wrap" data-aos="fade-up" data-aos-delay="300">
 							<div class="single-project">
 								<a href="projects.html" title="View project details">
 									<div class="content">
@@ -177,7 +179,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row d-flex justify-content-center">
+					<div class="row d-flex justify-content-center" data-aos="fade-up">
 						<a href="projects.html" class="primary-btn mt-50">View All Projects<span class="lnr lnr-arrow-right"></span></a>
 					</div>
 				</div>
@@ -188,7 +190,7 @@
 			<section class="donate-area relative section-gap" id="donate">
 				<div class="overlay overlay-bg"></div>
 				<div class="container">
-					<div class="row d-flex justify-content-center">
+					<div class="row d-flex justify-content-center" data-aos="fade-up">
 						<div class="col-lg-8 col-sm-12 pb-80 header-text text-center">
 							<h1>Donate Now</h1>
 							<p>
@@ -196,7 +198,7 @@
 							</p>
 						</div>
 					</div>
-					<div class="row d-flex justify-content-center">						
+					<div class="row d-flex justify-content-center" data-aos="fade-up">						
 						<div class="col-lg-10 contact-right">
 							<form class="booking-form" id="myForm">
 								 	<div class="row">
@@ -210,13 +212,13 @@
 											</div>
 										</div>
 										<div class="col-lg-12 d-flex flex-column">
-											<input id="donation-amount" name="amount" placeholder="Or enter a custom amount (USD)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Or enter a custom amount (USD)'" class="form-control mt-20" required="" type="number" min="1">
+											<input id="donation-amount" name="amount" placeholder="Or enter a custom amount (USD)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Or enter a custom amount (USD)'" class="form-control mt-20" required="" type="number" min="1" aria-label="Custom donation amount in USD">
 										</div>
 										<div class="col-lg-6 d-flex flex-column">
-											<input name="fname" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="form-control mt-20" required="" type="text">
+											<input name="fname" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="form-control mt-20" required="" type="text" aria-label="Your name">
 										</div>
 										<div class="col-lg-6 d-flex flex-column">
-											<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="form-control mt-20" required="" type="email">
+											<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="form-control mt-20" required="" type="email" aria-label="Your email address">
 										</div>
 										<div class="col-lg-12 d-flex flex-column">
 											<textarea class="form-control mt-20" name="message" placeholder="Leave a message (optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Leave a message (optional)'"></textarea>
@@ -229,8 +231,8 @@
 					  		</form>
 							<div class="payment-method text-center">
 								<p class="text-white mb-3">Or donate directly using Mobile Money:</p>
-								<a href="#" id="orange-money-link" title="Pay with Orange Money"><img src="image/payment2.png" alt="Orange Money" class="payment-logo"></a>
-								<a href="#" id="mtn-money-link" title="Pay with MTN Mobile Money"><img src="image/payment3.png" alt="MTN Mobile Money" class="payment-logo"></a>
+								<a href="#" id="orange-money-link" title="Pay with Orange Money"><img src="image/payment2.png" alt="Orange Money logo" class="payment-logo"></a>
+								<a href="#" id="mtn-money-link" title="Pay with MTN Mobile Money"><img src="image/payment3.png" alt="MTN Mobile Money logo" class="payment-logo"></a>
 							</div>
 						</div>
 					</div>
@@ -238,151 +240,22 @@
 			</section>
 			<!-- End donate Area -->
 
-			<!-- Start volunteer Area -->
-			<section class="volunteer-area section-gap">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pb-80 header-text">
-                <h1>Our Team</h1>
-                <p>
-                    Jesus Cares Charity is the relief and humanitarian arm of Trinity Outreach Ministries Inc
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 vol-wrap">
-                <div class="single-vol text-center position-relative">
-                    <div class="content position-relative">
-                        <a href="https://www.facebook.com/amos.sayjleh.2025" target="_blank" rel="noopener">
-                            <div class="content-overlay"></div>
-                            <img class="content-image img-fluid d-block mx-auto" src="image/Rev. Amos.jpg" alt="Rev. Amos K. Sayjleh">
-                        </a>
-                    </div>
-                    <h4 class="mt-3 mb-1">Rev. Amos K. Sayjleh</h4>
-                    <p class="mb-3">Chairman Of The Board</p>
-                    <div class="team-social">
-                        <a href="https://www.facebook.com/amos.sayjleh.2025" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter" onclick="return false;"><i class="fa fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 vol-wrap">
-                <div class="single-vol text-center position-relative">
-                    <div class="content position-relative">
-                        <a href="https://www.facebook.com/victoria.n.floh" target="_blank" rel="noopener">
-                            <div class="content-overlay"></div>
-                            <img class="content-image img-fluid d-block mx-auto" src="image/Victoria.jpg" alt="Rev. Victoria N. Floh">
-                        </a>
-                    </div>
-                    <h4 class="mt-3 mb-1">Rev. Victoria N. Floh</h4>
-                    <p class="mb-3">Field Coordinator</p>
-                    <div class="team-social">
-                        <a href="https://www.facebook.com/victoria.n.floh" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter" onclick="return false;"><i class="fa fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 vol-wrap">
-                <div class="single-vol text-center position-relative">
-                    <div class="content position-relative">
-                        <a href="#" target="_blank">
-                            <div class="content-overlay"></div>
-                            <img class="content-image img-fluid d-block mx-auto" src="image/Mechell.jpg" alt="Rev. Mechell K. Sartuh">
-                        </a>
-                    </div>
-                    <h4 class="mt-3 mb-1">Rev. Mechell K. Sartuh</h4>
-                    <p class="mb-3">Secretary Of The Board</p>
-                    <div class="team-social">
-                        <a href="#" target="_blank" aria-label="Facebook" onclick="return false;"><i class="fa fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter" onclick="return false;"><i class="fa fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 vol-wrap">
-                <div class="single-vol text-center position-relative">
-                    <div class="content position-relative">
-                        <a href="#" target="_blank">
-                            <div class="content-overlay"></div>
-                            <img class="content-image img-fluid d-block mx-auto" src="image/Fredirck.jpg" alt="Rev. Fredrick W. Togba">
-                        </a>
-                    </div>
-                    <h4 class="mt-3 mb-1">Rev. Fredrick W. Togba</h4>
-                    <p class="mb-3">Director Generator</p>
-                    <div class="team-social">
-                        <a href="#" target="_blank" aria-label="Facebook" onclick="return false;"><i class="fa fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter" onclick="return false;"><i class="fa fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 vol-wrap">
-                <div class="single-vol text-center position-relative">
-                    <div class="content position-relative">
-                        <a href="#" target="_blank">
-                            <div class="content-overlay"></div>
-                            <img class="content-image img-fluid d-block mx-auto" src="image/Cecelia.jpg" alt="Mrs. Cecelia M. Kollie">
-                        </a>
-                    </div>
-                    <h4 class="mt-3 mb-1">Mrs. Cecelia M. Kollie</h4>
-                    <p class="mb-3">Treasurer Of The Board</p>
-                    <div class="team-social">
-                        <a href="#" target="_blank" aria-label="Facebook" onclick="return false;"><i class="fa fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter" onclick="return false;"><i class="fa fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 vol-wrap">
-                <div class="single-vol text-center position-relative">
-                    <div class="content position-relative">
-                        <a href="#" target="_blank">
-                            <div class="content-overlay"></div>
-                            <img class="content-image img-fluid d-block mx-auto" src="image/Satta.jpg" alt="Min. Satta Lihai">
-                        </a>
-                    </div>
-                    <h4 class="mt-3 mb-1">Min. Satta Lihai</h4>
-                    <p class="mb-3">Field Of Coordinator</p>
-                    <div class="team-social">
-                        <a href="#" target="_blank" aria-label="Facebook" onclick="return false;"><i class="fa fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter" onclick="return false;"><i class="fa fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 vol-wrap mx-auto">
-                <div class="single-vol text-center position-relative">
-                    <div class="content position-relative">
-                        <a href="#" target="_blank">
-                            <div class="content-overlay"></div>
-                            <img class="content-image img-fluid d-block mx-auto" src="image/Lydon.jpg" alt="Rev. Lyndon N. Jaesen">
-                        </a>
-                    </div>
-                    <h4 class="mt-3 mb-1">Rev. Lyndon N. Jaesen</h4>
-                    <p class="mb-3">Field Of Coordinator</p>
-                    <div class="team-social">
-                        <a href="#" target="_blank" aria-label="Facebook" onclick="return false;"><i class="fa fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter" onclick="return false;"><i class="fa fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End volunteer Area -->
-
 			<!-- start footer Area -->
 			<footer class="footer-area section-gap" id="contact">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-4 col-md-6 single-footer-widget">
+						<div class="col-lg-4 col-md-6 single-footer-widget" data-aos="fade-up">
 							<h6>About Us</h6>
 							<p>
 								Jesus Cares Charity is the relief and humanitarian arm of Trinity Outreach Ministries Inc, dedicated to the holistic development and protection of children in Liberia.
 							</p>
 							<div class="footer-social">
-								<a href="https://wa.me/+231770217021?text=Hi%20there!%20I'd%20like%20to%20chat." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa fa-whatsapp"></i></a>
-								<a href="https://www.facebook.com/share/1Fsd1SANsT/" target="_blank" rel="noopener" aria-label="Visit our Facebook page"><i class="fa fa-facebook"></i></a>
-								<a href="https://www.instagram.com/jesus_cares_charity/" target="_blank" rel="noopener" aria-label="Visit our Instagram profile"><i class="fa fa-instagram"></i></a>
+								<a href="https://wa.me/+231770217021?text=Hi%20there!%20I'd%20like%20to%20chat." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa fa-whatsapp"></i><span class="sr-only"> (opens in new tab)</span></a>
+								<a href="https://www.facebook.com/share/1Fsd1SANsT/" target="_blank" rel="noopener" aria-label="Visit our Facebook page"><i class="fa fa-facebook"></i><span class="sr-only"> (opens in new tab)</span></a>
+								<a href="https://www.instagram.com/jesus_cares_charity/" target="_blank" rel="noopener" aria-label="Visit our Instagram profile"><i class="fa fa-instagram"></i><span class="sr-only"> (opens in new tab)</span></a>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6 single-footer-widget">
+						<div class="col-lg-4 col-md-6 single-footer-widget" data-aos="fade-up" data-aos-delay="100">
 							<h6>Navigation Links</h6>
 							<div class="row">
 								<div class="col">
@@ -401,7 +274,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6 single-footer-widget">
+						<div class="col-lg-4 col-md-6 single-footer-widget" data-aos="fade-up" data-aos-delay="200">
 							<h6>Contact Us</h6>
 							<p><i class="fa fa-map-marker mr-2"></i> Harbel Super Market, Twe Farm, Liberia</p>
 							<p><i class="fa fa-phone mr-2"></i> <a href="tel:+231770217021">+231 770 217 021</a></p>
@@ -410,23 +283,27 @@
 					</div>
 					<div class="footer-bottom row align-items-center justify-content-center">
 						<p class="footer-text m-0 col-lg-8 col-md-12 text-center">
-							Copyright &copy;<script>document.write(new Date().getFullYear());</script> <strong>Jesus Cares Charity</strong> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://suahco4.github.io/musician/" target="_blank" rel="noopener">Suahco4</a>
+							Copyright &copy;<script>document.write(new Date().getFullYear());</script> <strong>Jesus Cares Charity</strong> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://suahco4.github.io/musician/" target="_blank" rel="noopener">Suahco4<span class="sr-only"> (opens in new tab)</span></a>
 						</p>
 					</div>
 				</div>
 			</footer>
 			<!-- End footer Area -->
 
+			<!-- Back to Top Button -->
+			<a href="#" class="back-to-top d-none"><i class="fa fa-chevron-up"></i></a>
+
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 			<script src="js/vendor/bootstrap.min.js"></script>
 			<script src="js/jquery.ajaxchimp.min.js"></script>
 			<script src="js/jquery.nice-select.min.js"></script>
-			<script src="js/jquery.sticky.js"></script>
 			<script src="js/parallax.min.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 			<script src="js/jquery.magnific-popup.min.js"></script>
 			<script src="js/main.js"></script>
+			<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 			<script>
 	$(document).ready(function() {
 		$('.amount-btn').on('click', function() {
