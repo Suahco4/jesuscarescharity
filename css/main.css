@@ -30,9 +30,9 @@
 :-moz-placeholder { color: #777777; opacity: 1; font-weight: 300; }
 ::-moz-placeholder { color: #777777; opacity: 1; font-weight: 300; }
 :-ms-input-placeholder { color: #777777; font-weight: 300; }
-::-ms-input-placeholder { color: #777777; font-weight: 300; }
+::-ms-input-placeholder { color: #777777; font-weight: 300; } 
 
-body { color: #777; font-family: "Poppins", sans-serif; font-size: 14px; font-weight: 300; line-height: 1.625em; position: relative; }
+body { color: #555; font-family: "Poppins", sans-serif; font-size: 14px; font-weight: 300; line-height: 1.625em; position: relative; }
 ol, ul { margin: 0; padding: 0; list-style: none; }
 select { display: block; }
 figure { margin: 0; }
@@ -78,6 +78,17 @@ td, th { border-radius: 0px; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
 
+/* Screen-reader only text */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
 /*=================================================================
 	2. Generic Components (Buttons, Forms, etc.)
 =================================================================*/
@@ -125,18 +136,28 @@ td, th { border-radius: 0px; }
     opacity: .5;
 }
 .p1-gradient-color {
+    color: #f86e3d; /* Fallback for older browsers */
     background: -webkit-linear-gradient(bottom, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
     background: -o-linear-gradient(bottom, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
     background: linear-gradient(to top, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 .overlay { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
 
 /*=================================================================
 	4. Site Structure (Header, Footer)
 =================================================================*/
-.default-header { background-color: #fff; padding: 20px 0; width: 100% !important; box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3); position: absolute; top: 0; left: 0; width: 100%; z-index: 9; }
+.default-header {
+    background-color: #fff; padding: 20px 0; width: 100% !important;
+    box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3);
+    position: fixed; top: 0; left: 0; z-index: 999;
+    transition: top 0.3s ease-in-out;
+}
+.nav-up { top: -100px; /* Adjust this value if header height changes */ }
+
 .sticky-wrapper { height: 48px !important; }
 .menu-bar { cursor: pointer; }
 .menu-bar span { color: #000; font-size: 24px; }
@@ -145,6 +166,13 @@ nav { margin-right: 70px; -webkit-transition: all 0.3s ease 0s; -moz-transition:
 nav.hide { transform: scale(0); }
 nav a { color: #000; font-size: 12px; font-weight: 500; text-transform: uppercase; margin: 0 25px; display: inline-block; }
 nav a:hover { color: #f41665; }
+.menu-bar {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
 
 .footer-area { background-color: #fff; color: #222; text-align: center; }
 .footer-menu { margin-bottom: 30px; }
@@ -153,7 +181,7 @@ nav a:hover { color: #f41665; }
 .footer-menu li a:hover { color: #f41665; }
 .footer-social { padding-bottom: 30px; }
 .footer-social a { padding: 15px; }
-.footer-social a i { color: #ccc; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s; }
+.footer-social a i { color: #888; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s; }
 .footer-social a i:hover { color: #f41665; }
 .footer-text a, .footer-text i { color: #f41665; }
 
@@ -199,12 +227,12 @@ nav a:hover { color: #f41665; }
 .about-area { background-color: #222; }
 .about-right { padding-right: 20%; padding-left: 5%; }
 .about-right h1 { color: #fff; margin-bottom: 25px; }
-.about-right p { color: #ccc; font-weight: 300; }
+.about-right p { color: #ddd; font-weight: 300; }
 .about-features { margin-top: 40px; }
 .about-features .feature-item { margin-bottom: 25px; }
 .about-features .feature-item i { color: #f86e3d; transition: all .3s ease; }
 .about-features .feature-item h4 { color: #fff; font-size: 18px; margin-bottom: 10px; }
-.about-features .feature-item p { color: #aaa; margin-bottom: 0; font-size: 14px; }
+.about-features .feature-item p { color: #ddd; margin-bottom: 0; font-size: 14px; }
 .about-features .feature-item:hover i { transform: scale(1.1); color: #fbcd11; }
 .about-right .btn-black { margin-top: 30px; background-color: #222; border: 1px solid #777; color: #fff; text-transform: uppercase; font-size: 14px; border-radius: 20px; padding: 12px 28px; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s; }
 .about-right .btn-black:hover { border: 1px solid #222; background: #fff; color: #222; cursor: pointer; }
@@ -223,25 +251,59 @@ nav a:hover { color: #f41665; }
 .single-vol .content:hover .content-details { top: 50%; left: 50%; opacity: 1; }
 .single-vol .fadeIn-bottom { top: 80%; }
 
+.single-vol .content-image {
+    width: 100%;
+    height: 250px; /* Adjust height as needed for a uniform look */
+    object-fit: cover;
+    object-position: center; /* Ensures the image is centered */
+}
+
+.team-social a:not([href]) {
+    cursor: default;
+    opacity: 0.5;
+}
 /* Donate Area */
 .donate-area { background: url(../img/header-bg.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 .donate-area .overlay-bg { opacity: .9; background-color: #000; }
 .donate-area .header-text h1 { color: #fff; margin-bottom: 25px; }
+.donate-area .header-text p { color: #ddd; }
 .donate-area .contact-right .form-control { border-radius: 0; background-color: transparent; border: 1px solid #656463; color: #fff; font-size: 14px; padding: 12px; }
+.donate-area .contact-right .form-control::placeholder { color: #bbb; }
+.donate-area .contact-right .form-control::-webkit-input-placeholder { color: #bbb; }
+.donate-area .contact-right .form-control::-moz-placeholder { color: #bbb; opacity: 1; }
+.donate-area .contact-right .form-control:-ms-input-placeholder { color: #bbb; }
+.donate-area .contact-right .form-control::-ms-input-placeholder { color: #bbb; }
 .donate-area .contact-right input, .donate-area .contact-right textarea { font-size: 14px; font-weight: 200; }
 .donate-area .contact-right .option { color: #222; }
-.donate-area .contact-right .nice-select span { color: #ccc; font-size: 14px; font-weight: 200; }
+.donate-area .contact-right .nice-select span { color: #ddd; font-size: 14px; font-weight: 200; }
 .donate-area .contact-right textarea { height: 150px; }
 .donate-area .contact-right .list { width: 100%; }
-.donate-area .contact-right .payment-method { color: #ccc; margin-top: 30px; }
+.donate-area .contact-right .payment-method { color: #ddd; margin-top: 30px; }
 .payment-logo { margin: 0 10px; transition: transform .2s ease; }
 .payment-logo:hover { transform: scale(1.1); }
 
+/* Donation Amount Buttons */
+.amount-buttons .amount-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #222;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.amount-buttons .amount-btn.active, .amount-buttons .amount-btn:hover {
+    background-image: -moz-linear-gradient(0deg, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
+    background-image: -webkit-linear-gradient(0deg, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
+    background-image: -ms-linear-gradient(0deg, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
+    color: #fff;
+    border-color: transparent;
+}
 /* About Us Page */
 .about-details-area { background-color: #f9f9ff; }
 .about-details-content h2 { font-size: 28px; margin-bottom: 20px; color: #222; }
 .about-details-content h3 { font-size: 22px; margin-bottom: 15px; color: #333; }
-.about-details-content p { color: #777; line-height: 1.7; }
+.about-details-content p { color: #555; line-height: 1.7; }
 .vision-mission-cards .card { border: none; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); transition: all 0.3s ease; }
 .vision-mission-cards .card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); }
 .vision-mission-cards .card-title { color: #f86e3d; font-weight: 600; }
@@ -249,6 +311,27 @@ nav a:hover { color: #f41665; }
 .about-details-area .list-group-item i { color: #f86e3d; margin-right: 10px; }
 .primary-btn span { margin-left: 10px; transition: all .3s ease; }
 .primary-btn:hover span { transform: translateX(-5px); }
+
+/*=================================================================
+	Back to Top Button
+=================================================================*/
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: -moz-linear-gradient(0deg, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
+    background-image: -webkit-linear-gradient(0deg, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
+    background-image: -ms-linear-gradient(0deg, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    z-index: 998;
+    transition: all 0.4s;
+}
 
 /*=================================================================
 	6. Plugin Styles (Swiper, etc.)

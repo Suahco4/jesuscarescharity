@@ -12,9 +12,29 @@ $(document).ready(function(){
 	$(".fullscreen").css("height", window_height)
 	$(".fitscreen").css("height", fitscreen);
 
-  //-------- Active Sticky Js ----------//
-     $(".default-header").sticky({topSpacing:0});
+  //-------- Header Scroll Class  ----------//
+	var lastScrollTop = 0;
+	$(window).on('scroll', function() {
+		var st = $(this).scrollTop();
+		var header = $('.default-header');
+		if (st > lastScrollTop && st > header.height()) {
+			// Scroll Down
+			header.addClass('nav-up');
+		} else {
+			// Scroll Up
+			header.removeClass('nav-up');
+		}
+		lastScrollTop = st;
+	});
 
+	// Add padding to body to prevent content from being hidden by the fixed header
+	var headerHeight = $('.default-header').height();
+	$('body').css('padding-top', headerHeight + 'px');
+	// Adjust banner height
+	$('.banner-area.fullscreen').css('height', 'calc(100vh - ' + headerHeight + 'px)');
+	// Adjust banner row height for content alignment
+	$('.banner-row-height').css('min-height', 'calc(100vh - ' + headerHeight + 'px)');
+  
   
   //------- Active Nice Select --------//
      $('select').niceSelect();
@@ -22,10 +42,28 @@ $(document).ready(function(){
      
    // -------   Active Mobile Menu-----//
 
-  $(".menu-bar").on('click', function(e){
+  var menu = $("#mainNav");
+  var menubar = $(".menu-bar");
+
+  menubar.on('click', function(e) {
       e.preventDefault();
-      $("#mainNav").toggleClass('hide mobile-menu');
-      $("span", this).toggleClass("lnr-menu lnr-cross");
+      e.stopPropagation();
+      var isExpanded = menubar.attr('aria-expanded') === 'true';
+      menubar.attr('aria-expanded', !isExpanded);
+      menu.toggleClass('hide mobile-menu');
+      $("span", this).toggleClass("lnr-cross");
+      if (!isExpanded) {
+        menu.find('a:first').focus();
+      } else {
+        menubar.focus();
+      }
+  });
+
+  // Close mobile menu when a link is clicked
+  $('#mainNav a').on('click', function() {
+    if (menu.hasClass('mobile-menu')) {
+      menubar.trigger('click');
+    }
   });
 
 
@@ -34,7 +72,7 @@ $(document).ready(function(){
 
 
   // Select all links with hashes
-  $('.main-menubar a[href*="#"]')
+  $('a[href*="#"]')
     // Remove links that don't actually link to anything
     .not('[href="#"]')
     .not('[href="#0"]')
@@ -53,7 +91,7 @@ $(document).ready(function(){
           // Only prevent default if animation is actually gonna happen
           event.preventDefault();
           $('html, body').animate({
-            scrollTop: target.offset().top
+            scrollTop: target.offset().top - headerHeight
           }, 1000, function() {
             // Callback after animation
             // Must change focus!
@@ -70,37 +108,54 @@ $(document).ready(function(){
       }
     });
 
-      // -------   Mail Send ajax
+    // -------   Mail Send ajax
+    var form = $('#myForm'); // contact form
+    var submit = $('.submit-btn'); // submit button
+    var alert = $('.alert-msg'); // alert div for show alert message
 
-         $(document).ready(function() {
-            var form = $('#myForm'); // contact form
-            var submit = $('.submit-btn'); // submit button
-            var alert = $('.alert-msg'); // alert div for show alert message
+    // form submit event
+    form.on('submit', function(e) {
+        e.preventDefault(); // prevent default form submit
 
-            // form submit event
-            form.on('submit', function(e) {
-                e.preventDefault(); // prevent default form submit
+        // Initialize EmailJS
+        emailjs.init("YOUR_USER_ID"); // TODO: Replace with your EmailJS User ID
 
-                $.ajax({
-                    url: 'mail.js', // form action url
-                    type: 'POST', // form submit method get/post
-                    dataType: 'html', // request type html/json/xml
-                    data: form.serialize(), // serialize form data
-                    beforeSend: function() {
-                        alert.fadeOut();
-                        submit.html('Sending....'); // change submit button text
-                    },
-                    success: function(data) {
-                        alert.html(data).fadeIn(); // fade in response data
-                        form.trigger('reset'); // reset form
-                        submit.attr("style", "display: none !important");; // reset submit button text
-                    },
-                    error: function(e) {
-                        console.log(e)
-                    }
-                });
+        // Change button text
+        submit.html('Sending....');
+
+        // Send form data using EmailJS
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this) // TODO: Replace with your Service & Template IDs
+            .then(function() {
+                alert.html("Thank you! Your donation request has been sent successfully.").fadeIn();
+                form.trigger('reset');
+                $('.amount-btn').removeClass('active');
+                submit.html('Proceed to Donate<span class="lnr lnr-arrow-right"></span>');
+            }, function(error) {
+                alert.html("Oops! Something went wrong. Please try again.").fadeIn();
+                console.log('EmailJS Error:', error);
+                submit.html('Proceed to Donate<span class="lnr lnr-arrow-right"></span>');
             });
-        });
+    });
 
+
+    // Initialize Animate On Scroll
+    AOS.init();
+
+    // Back to Top button
+    var backToTop = $('.back-to-top');
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 300) {
+            backToTop.removeClass('d-none').fadeIn();
+        } else {
+            backToTop.fadeOut(function() {
+                backToTop.addClass('d-none');
+            });
+        }
+    });
+
+    backToTop.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 1000);
+    });
 
  });
