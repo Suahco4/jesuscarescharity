@@ -4,10 +4,20 @@
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 			<!-- Favicon -->
-			<link rel="icon" href="/favicon.ico" type="image/x-icon">
-			<!-- Theme Color -->
-			<meta name="msapplication-navbutton-color" content="#ffffff"><!-- For Windows Phone -->
-			<meta name="apple-mobile-web-app-status-bar-style" content="default"><!-- For Safari on iOS -->
+			<link rel="icon" type="image/x-icon" href="favicon.ico">
+			<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+			<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+			
+			<!-- Apple Touch Icons -->
+			<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+			
+			<!-- Android -->
+			<link rel="manifest" href="site.webmanifest">
+			
+			<!-- Windows -->
+			<meta name="msapplication-TileColor" content="#ffffff">
+			<meta name="msapplication-TileImage" content="mstile-144x144.png">
+			<meta name="theme-color" content="#ffffff">
     <!-- Author Meta -->
     <meta name="author" content="Suahco4">
     <!-- Meta Description -->
@@ -201,38 +211,44 @@
 					<div class="row d-flex justify-content-center" data-aos="fade-up">						
 						<div class="col-lg-10 contact-right">
 							<form class="booking-form" id="myForm">
-								 	<div class="row">
-										<div class="col-12 text-center pb-4">
-											<h4 class="text-white">Choose an amount</h4>
+								<div class="row">
+									<div class="col-12 text-center pb-4">
+										<fieldset>
+											<legend class="text-white h4">Choose an amount</legend>
 											<div class="amount-buttons">
 												<button type="button" class="amount-btn" data-amount="10">$10</button>
 												<button type="button" class="amount-btn" data-amount="25">$25</button>
 												<button type="button" class="amount-btn" data-amount="50">$50</button>
 												<button type="button" class="amount-btn" data-amount="100">$100</button>
 											</div>
-										</div>
-										<div class="col-lg-12 d-flex flex-column">
-											<input id="donation-amount" name="amount" placeholder="Or enter a custom amount (USD)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Or enter a custom amount (USD)'" class="form-control mt-20" required="" type="number" min="1" aria-label="Custom donation amount in USD">
-										</div>
-										<div class="col-lg-6 d-flex flex-column">
-											<input name="fname" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="form-control mt-20" required="" type="text" aria-label="Your name">
-										</div>
-										<div class="col-lg-6 d-flex flex-column">
-											<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="form-control mt-20" required="" type="email" aria-label="Your email address">
-										</div>
-										<div class="col-lg-12 d-flex flex-column">
-											<textarea class="form-control mt-20" name="message" placeholder="Leave a message (optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Leave a message (optional)'"></textarea>
-										</div>
-										<div class="col-lg-12 d-flex justify-content-end send-btn">
-											<button type="submit" class="submit-btn primary-btn mt-20 text-uppercase w-100">Proceed to Donate<span class="lnr lnr-arrow-right"></span></button>
-										</div>
-										<div class="alert-msg"></div>
+										</fieldset>
 									</div>
+									<div class="col-lg-12 d-flex flex-column">
+										<label for="donation-amount" class="sr-only">Or enter a custom amount (USD)</label>
+										<input id="donation-amount" name="amount" placeholder="Or enter a custom amount (USD)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Or enter a custom amount (USD)'" class="form-control mt-20" required type="number" min="1" aria-label="Custom donation amount in US Dollars">
+									</div>
+									<div class="col-lg-6 d-flex flex-column">
+										<label for="fname" class="sr-only">Your Name</label>
+										<input id="fname" name="fname" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="form-control mt-20" required type="text" aria-label="Your name">
+									</div>
+									<div class="col-lg-6 d-flex flex-column">
+										<label for="email" class="sr-only">Your Email</label>
+										<input id="email" name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="form-control mt-20" required type="email" aria-label="Your email address">
+									</div>
+									<div class="col-lg-12 d-flex flex-column">
+										<label for="message" class="sr-only">Message (optional)</label>
+										<textarea id="message" class="form-control mt-20" name="message" placeholder="Leave a message (optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Leave a message (optional)'"></textarea>
+									</div>
+									<div class="col-lg-12 d-flex justify-content-end send-btn">
+										<button type="submit" class="submit-btn primary-btn mt-20 text-uppercase w-100">Proceed to Donate<span class="lnr lnr-arrow-right"></span></button>
+									</div>
+									<div class="alert-msg" aria-live="polite"></div>
+								</div>
 					  		</form>
 							<div class="payment-method text-center">
 								<p class="text-white mb-3">Or donate directly using Mobile Money:</p>
-								<a href="#" id="orange-money-link" title="Pay with Orange Money"><img src="image/payment2.png" alt="Orange Money logo" class="payment-logo"></a>
-								<a href="#" id="mtn-money-link" title="Pay with MTN Mobile Money"><img src="image/payment3.png" alt="MTN Mobile Money logo" class="payment-logo"></a>
+								<a href="image/orangemoney.html" id="orange-money-link" title="Pay with Orange Money"><img src="image/payment2.png" alt="Orange Money logo" class="payment-logo"></a>
+								<a href="image/mtnmoney.html" id="mtn-money-link" title="Pay with MTN Mobile Money"><img src="image/payment3.png" alt="MTN Mobile Money logo" class="payment-logo"></a>
 							</div>
 						</div>
 					</div>
@@ -261,7 +277,7 @@
 								<div class="col">
 									<ul>
 										<li><a href="index.html#home">Home</a></li>
-										<li><a href="about us.html">About</a></li>
+										<li><a href="about us.html" title="Learn more about us">About</a></li>
 										<li><a href="projects.html">Projects</a></li>
 									</ul>
 								</div>
@@ -300,10 +316,11 @@
 			<script src="js/jquery.nice-select.min.js"></script>
 			<script src="js/parallax.min.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 			<script src="js/jquery.magnific-popup.min.js"></script>
 			<script src="js/main.js"></script>
+			<script src="js/donation.js"></script>
 			<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 			<script>
 	$(document).ready(function() {
 		$('.amount-btn').on('click', function() {
@@ -313,19 +330,27 @@
 			$(this).addClass('active');
 		});
 
-		$('#donation-amount').on('input', function() {
+		function updateMobileMoneyLinks() {
 			$('.amount-btn').removeClass('active');
-		});
+			var amount = $('#donation-amount').val();
+			var name = $('#fname').val();
+			var email = $('#email').val();
 
-		// Update Mobile Money links with amount
-		$('#donation-amount').on('input', function() {
-			var amount = $(this).val();
-			var orangeMoneyLink = 'image/orangemoney.html' + (amount ? '?amount=' + amount : '');
-			$('#orange-money-link').attr('href', orangeMoneyLink);
+			var params = new URLSearchParams();
+			if (amount) params.append('amount', amount);
+			if (name) params.append('name', name);
+			if (email) params.append('email', email);
 
-			var mtnMoneyLink = 'image/mtnmoney.html' + (amount ? '?amount=' + amount : '');
-			$('#mtn-money-link').attr('href', mtnMoneyLink);
-		});
+			var queryString = params.toString();
+			var baseUrlOrange = 'image/orangemoney.html';
+			var baseUrlMtn = 'image/mtnmoney.html';
+
+			$('#orange-money-link').attr('href', queryString ? `${baseUrlOrange}?${queryString}` : baseUrlOrange);
+			$('#mtn-money-link').attr('href', queryString ? `${baseUrlMtn}?${queryString}` : baseUrlMtn);
+		}
+
+		// Update links when any relevant field changes
+		$('#donation-amount, #fname, #email').on('input', updateMobileMoneyLinks);
 	});
 </script>
 		</body>

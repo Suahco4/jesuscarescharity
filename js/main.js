@@ -108,35 +108,6 @@ $(document).ready(function(){
       }
     });
 
-    // -------   Mail Send ajax
-    var form = $('#myForm'); // contact form
-    var submit = $('.submit-btn'); // submit button
-    var alert = $('.alert-msg'); // alert div for show alert message
-
-    // form submit event
-    form.on('submit', function(e) {
-        e.preventDefault(); // prevent default form submit
-
-        // Initialize EmailJS
-        emailjs.init("YOUR_USER_ID"); // TODO: Replace with your EmailJS User ID
-
-        // Change button text
-        submit.html('Sending....');
-
-        // Send form data using EmailJS
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this) // TODO: Replace with your Service & Template IDs
-            .then(function() {
-                alert.html("Thank you! Your donation request has been sent successfully.").fadeIn();
-                form.trigger('reset');
-                $('.amount-btn').removeClass('active');
-                submit.html('Proceed to Donate<span class="lnr lnr-arrow-right"></span>');
-            }, function(error) {
-                alert.html("Oops! Something went wrong. Please try again.").fadeIn();
-                console.log('EmailJS Error:', error);
-                submit.html('Proceed to Donate<span class="lnr lnr-arrow-right"></span>');
-            });
-    });
-
 
     // Initialize Animate On Scroll
     AOS.init();
