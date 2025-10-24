@@ -4,7 +4,20 @@
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    
+    <!-- Android -->
+    <link rel="manifest" href="../site.webmanifest">
+    
+    <!-- Windows -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <!-- Meta Description -->
     <meta name="description" content="Donate using Orange Money">
     <!-- meta character set -->
@@ -69,7 +82,7 @@
                 <div class="col-lg-6">
                     <div class="payment-form-content">
                         <h3 class="mb-4">Enter Your Payment Details</h3>
-                        <form id="paymentForm" class="form-area">
+                        <form id="paymentForm" class="form-area" data-payment-method="Orange Money">
                             <div class="form-group">
                                 <label for="amount">Amount (LRD)</label>
                                 <input type="number" id="amount" class="form-control" placeholder="e.g., 1000" required>
@@ -143,7 +156,7 @@
     <script src="../js/vendor/bootstrap.min.js"></script>
     <script src="../js/jquery.nice-select.min.js"></script>
     <script src="../js/jquery.sticky.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="orangemoney.js"></script>
+    <script src="../js/main.js"></script> 
+    <script src="payment.js"></script>
 </body>
 </html>
