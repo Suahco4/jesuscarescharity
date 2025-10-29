@@ -116,6 +116,20 @@ td, th { border-radius: 0px; }
 .ordered-list li { list-style-type: decimal-leading-zero; color: #fcd2ff; font-weight: 500; line-height: 1.82em !important; }
 .ordered-list li span { font-weight: 300; color: #777; }
 
+.project-description-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+.list-bullet-icon { 
+    margin-right: 10px; 
+    margin-top: 5px; 
+    max-width: 100px; 
+    max-height: 100px; /* You can adjust this value */
+    height: auto; 
+}
+
 .single-input { display: block; width: 100%; line-height: 40px; border: none; outline: none; background: #f9f9ff; padding: 0 20px; }
 .single-input:focus { outline: none; }
 .single-textarea { display: block; width: 100%; line-height: 40px; border: none; outline: none; background: #f9f9ff; padding: 0 20px; height: 100px; resize: none; }
@@ -161,9 +175,17 @@ td, th { border-radius: 0px; }
 .sticky-wrapper { height: 48px !important; }
 .menu-bar { cursor: pointer; }
 .menu-bar span { color: #000; font-size: 24px; }
-.main-menubar { position: relative; }
-nav { margin-right: 70px; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s; transform-origin: 100% 50%; }
-nav.hide { transform: scale(0); }
+.main-menubar { position: relative; } /* Ensure this is correctly positioned */
+nav {
+    margin-right: 70px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    transform-origin: 100% 50%;
+    /* Default state for desktop, will be overridden by media query for mobile */
+}
+nav.hide { transform: scale(0); opacity: 0; visibility: hidden; pointer-events: none; display: none; } /* Add display: none for full hiding */
 nav a { color: #000; font-size: 12px; font-weight: 500; text-transform: uppercase; margin: 0 25px; display: inline-block; }
 nav a:hover { color: #f41665; }
 .menu-bar {
@@ -384,13 +406,20 @@ nav a:hover { color: #f41665; }
 
 @media (max-width: 767px) {
     nav { margin-right: 0; position: absolute; right: 0; top: 47px; text-align: right; padding: 20px 0; z-index: 5; background: #fff; }
-    nav a { color: #f41665 !important; margin: 5px 25px; }
+    nav a { color: #000 !important; margin: 5px 25px; display: block; } /* Ensure links are block for better mobile tapping */
     nav a:hover { color: #f41665; }
-    .banner-area .fullscreen { height: 700px !important; }
-    .project-wrap .details { text-align: center; }
-    .project-wrap { margin-bottom: 30px; }
-    .single-project .content .content-overlay { left: 20px; width: 90%; }
-    .single-vol .content .content-overlay { left: 65px; width: 67%; }
+    /* When not hidden, ensure it's displayed as a block menu */
+    nav:not(.hide) {
+        display: block; /* Make it visible when 'hide' is removed */
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    /* The .hide class will override the above when present */
+    nav.hide {
+        display: none; /* Completely hide when closed */
+    }
 }
 
 @media (max-width: 414px) {
