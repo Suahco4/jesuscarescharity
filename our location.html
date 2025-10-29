@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us" class="no-js">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Our Location</title>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -16,36 +16,125 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/linearicons.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="location.css">
 </head>
 <body>
-    <header>
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
-        <h1>Our Location</h1>
-        <p>Visit us at our headquarters!</p>
+    <!-- Start Header Area -->
+    <header class="default-header">
+        <div class="container">
+            <div class="header-wrap">
+                <div class="header-top d-flex justify-content-between align-items-center">
+                    <div class="logo">
+                        <a href="index.html#home" title="Go to Home">
+                            <img src="img/logo.png" alt="Jesus Cares Charity logo">
+                            <h2 class="logo-title">Jesus Cares Charity</h2>
+                        </a>
+                    </div>
+                    <div class="main-menubar d-flex align-items-center">
+                        <nav id="mainNav" class="hide mobile-menu">
+                            <a href="index.html#home">Home</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="about us.html">About</a>
+                            <a href="index.html#donate">Donate</a>
+                            <a href="index.html#contact">Contact</a>
+                        </nav>
+                        <button class="menu-bar" id="menuBar" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mainNav">
+                            <span class="lnr lnr-menu"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
+    <!-- End Header Area -->
 
+    <!-- Start Banner Area -->
+    <section class="banner-area relative">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row fullscreen align-items-center justify-content-start banner-row-height">
+                <div class="banner-content col-lg-9 col-md-12">
+                    <h1>Our Location</h1>
+                    <p>Find your way to our headquarters and see where the change begins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
     <main class="content-wrapper">
         <section id="map-section">
             <h2>Find Us Here</h2>
             <div class="map-container">
-                <iframe id="map" src="https://www.google.com/maps/d/u/1/embed?mid=1_cTHGAZ55jaI4pbG5gFfGVVX8qTzkMw&ehbc=2E312F" width="640" height="480" allowfullscreen="" loading="lazy"></iframe>
+                <iframe id="map" src="https://www.google.com/maps/d/u/1/embed?mid=1_cTHGAZ55jaI4pbG5gFfGVVX8qTzkMw&ehbc=2E312F" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <button id="zoom-btn">Zoom In on Map</button>
             <p id="distance">Your approximate distance from us: Calculating...</p>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>Address: Harbel Super Market, Twe Farm, Liberia</p>
-            <p>
-                Phone: <a href="tel:+231770217021">+231 770 217 021</a> |
-                Email: <a href="mailto:jesuscarescharity53@gmail.com" class="email-link">jesuscarescharity53@gmail.com</a>
-            </p>
+    <!-- start footer Area -->
+	<footer class="footer-area section-gap" id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 single-footer-widget" data-aos="fade-up">
+					<h6>About Us</h6>
+					<p>
+						Jesus Cares Charity is the relief and humanitarian arm of Trinity Outreach Ministries Inc, dedicated to the holistic development and protection of children in Liberia.
+					</p>
+					<div class="footer-social">
+						<a href="https://wa.me/+231770217021?text=Hi%20there!%20I'd%20like%20to%20chat." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa fa-whatsapp"></i><span class="sr-only"> (opens in new tab)</span></a>
+						<a href="https://www.facebook.com/share/1Fsd1SANsT/" target="_blank" rel="noopener" aria-label="Visit our Facebook page"><i class="fa fa-facebook"></i><span class="sr-only"> (opens in new tab)</span></a>
+						<a href="https://www.instagram.com/jesus_cares_charity/" target="_blank" rel="noopener" aria-label="Visit our Instagram profile"><i class="fa fa-instagram"></i><span class="sr-only"> (opens in new tab)</span></a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 single-footer-widget" data-aos="fade-up" data-aos-delay="100">
+					<h6>Navigation Links</h6>
+					<div class="row">
+						<div class="col">
+							<ul>
+								<li><a href="index.html#home">Home</a></li>
+								<li><a href="about us.html" title="Learn more about us">About</a></li>
+								<li><a href="projects.html">Projects</a></li>
+							</ul>
+						</div>
+						<div class="col">
+							<ul>
+								<li><a href="index.html#donate">Donate</a></li>
+								<li><a href="our location.html" title="View our location">Location</a></li>
+								<li><a href="#contact">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 single-footer-widget" data-aos="fade-up" data-aos-delay="200">
+					<h6>Contact Us</h6>
+					<p><i class="fa fa-map-marker mr-2"></i> Harbel Super Market, Twe Farm, Liberia</p>
+					<p><i class="fa fa-phone mr-2"></i> <a href="tel:+231770217021">+231 770 217 021</a></p>
+					<p><i class="fa fa-envelope mr-2"></i> <a href="mailto:jesuscarescharity53@gmail.com">jesuscarescharity53@gmail.com</a></p>
+				</div>
+			</div>
+			<div class="footer-bottom row align-items-center justify-content-center">
+				<p class="footer-text m-0 col-lg-8 col-md-12 text-center">
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> <strong>Jesus Cares Charity</strong> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://suahco4.github.io/musician/" target="_blank" rel="noopener">Suahco4<span class="sr-only"> (opens in new tab)</span></a>
+				</p>
+			</div>
         </div>
-    </footer>
+	</footer>
+    <!-- End footer Area -->
 
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top d-none"><i class="fa fa-chevron-up"></i></a>
+
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="location.js"></script>
 </body>
 </html>

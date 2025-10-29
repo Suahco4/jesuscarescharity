@@ -1,38 +1,37 @@
 $(document).ready(function() {
-    // Initialize EmailJS with your User ID
-    emailjs.init("service_t4jdpwc"); // Replace with your EmailJS User ID
+    "use strict";
 
-    var form = $('#myForm'); // contact form
-    var submit = $('.submit-btn'); // submit button
-    var alert = $('.alert-msg'); // alert div for show alert message
+    const contactForm = $('#contactForm'); // The contact form
 
-    // form submit event
-    form.on('submit', function(e) {
-        e.preventDefault(); // prevent default form submit
+    // Only execute if the contact form exists.
+    if (contactForm.length) {
+        // Initialize EmailJS with your Public Key.
+        emailjs.init("mMoFbLBQtA226NQY_"); // This is your public key.
 
-        // Collect form data
-        var formData = {
-            name: form.find('input[name="name"]').val(),
-            email: form.find('input[name="email"]').val(),
-            subject: form.find('input[name="subject"]').val(),
-            message: form.find('textarea[name="message"]').val()
-        };
+        const submitBtn = contactForm.find('.submit-btn');
+        const alertMsg = contactForm.find('.alert-msg');
 
-        // Basic validation (client-side)
-        if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-            alert.html("Please fill in all fields.").fadeIn();
-            return;
-        }
+        // Handle the form submission event.
+        contactForm.on('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission.
 
-        // Send via EmailJS
-        emailjs.send("service_t4jdpwc", "tamplate_awyrou5", formData) // Replace with your IDs
-            .then(function(response) {
-                alert.html("Thank you! Your message has been sent successfully.").fadeIn();
-                form.trigger('reset');
-                submit.attr("style", "display: none !important");
-            }, function(error) {
-                alert.html("Oops! Something went wrong. Please try again.").fadeIn();
-                console.log('EmailJS Error:', error);
-            });
-    });
+            // Update UI to show processing state.
+            submitBtn.html('Sending...');
+            alertMsg.fadeOut();
+
+            // Send form data using EmailJS.
+            // Service ID: service_t4jdpwc
+            // Template ID: tamplate_awyrou5
+            emailjs.sendForm('service_t4jdpwc', 'tamplate_awyrou5', this)
+                .then(function() {
+                    alertMsg.html("Thank you! Your message has been sent successfully.").addClass('text-success').fadeIn();
+                    contactForm.trigger('reset');
+                    submitBtn.html('Send Message');
+                }, function(error) {
+                    console.error('EmailJS Error:', error);
+                    alertMsg.html("Oops! Something went wrong. Please try again.").addClass('text-danger').fadeIn();
+                    submitBtn.html('Send Message');
+                });
+        });
+    }
 });
