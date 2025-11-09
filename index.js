@@ -5,9 +5,14 @@ const cors = require('cors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // Use environment variable for port or default to 3000
 
 // Middleware
+const corsOptions = {
+    origin: '*', // Allow all origins - FOR DEVELOPMENT ONLY!  In production, specify your frontend URL.
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+}
+
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // To parse JSON bodies
 app.use(express.static(__dirname)); // Serve static files from the root directory
