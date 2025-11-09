@@ -15,7 +15,7 @@ $(document).ready(function() {
 
         // Initialize EmailJS with your Public Key (not User ID).
         // This is safe to expose on the client-side.
-        emailjs.init("mMoFbLBQtA226NQY_");
+        emailjs.init("AkK_OG-iKP7iUGHHX");
 
         // Handle the form submission event.
         form.on('submit', async function(e) {
@@ -43,7 +43,7 @@ $(document).ready(function() {
                 // 1. Attempt to send an email notification via EmailJS.
                 // This is done first, but payment is prioritized. If this fails, we still proceed.
                 try {
-                    await emailjs.sendForm('service_t4jdpwc', 'tamplate_bq7h8n6', this);
+                    await emailjs.sendForm('service_t3g6beo', 'template_7ogb27c', this);
                     console.log('EmailJS notification sent successfully.');
                 } catch (emailJsError) {
                     // Log a warning for debugging, but don't block the user.
