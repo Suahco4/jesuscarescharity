@@ -304,6 +304,7 @@ nav a:hover { color: #f41665; }
 .payment-logo { margin: 0 10px; transition: transform .2s ease; }
 .payment-logo:hover { transform: scale(1.1); }
 
+
 /* Donation Amount Buttons */
 .amount-buttons .amount-btn {
     background: #fff;

@@ -11,6 +11,7 @@ $(document).ready(function() {
         const donationAmountInput = $('#donation-amount');
         const nameInput = $('#fname');
         const emailInput = $('#email');
+        const subjectInput = $('#subject');
         const messageInput = $('#message');
 
         // Initialize EmailJS with your Public Key (not User ID).
@@ -21,68 +22,66 @@ $(document).ready(function() {
         form.on('submit', async function(e) {
             e.preventDefault(); // Prevent the default form submission.
 
-            // --- Client-side validation ---
-            const amount = parseFloat(donationAmountInput.val());
-            if (isNaN(amount) || amount <= 0) {
-                alertMsg.html("Please enter a valid donation amount.").fadeIn();
-                return;
-            }
-
             // Update UI to show processing state
             submitBtn.html('Processing...').prop('disabled', true);
             alertMsg.fadeOut();
 
+            const amount = parseFloat(donationAmountInput.val());
+            const isDonation = !isNaN(amount) && amount > 0;
+
             const formData = {
-                amount: amount,
+                amount: isDonation ? amount : 0,
                 name: nameInput.val(),
                 email: emailInput.val(),
+                subject: subjectInput.val(),
                 message: messageInput.val()
             };
 
-            try {
-                // 1. Attempt to send an email notification via EmailJS.
-                // This is done first, but payment is prioritized. If this fails, we still proceed.
+            if (isDonation) {
+                // --- Handle Donation ---
                 try {
-                    await emailjs.sendForm('service_t3g6beo', 'template_7ogb27c', this);
-                    console.log('EmailJS notification sent successfully.');
-                } catch (emailJsError) {
-                    // Log a warning for debugging, but don't block the user.
-                    console.warn('EmailJS notification failed, but proceeding with payment:', emailJsError);
+                    // Send donation data to the backend to create a payment link.
+                    const response = await fetch('/api/create-payment', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || `HTTP error! Status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+
+                    // Redirect to the payment gateway.
+                    if (data.paymentLink) {
+                        window.location.href = data.paymentLink;
+                    } else {
+                        throw new Error(data.error || 'Failed to create payment session.');
+                    }
+
+                } catch (error) {
+                    console.error('Donation processing error:', error);
+                    alertMsg.html(`Error: ${error.message || "Something went wrong. Please try again."}`).fadeIn();
+                    submitBtn.html('Proceed to Donate<span class="lnr lnr-arrow-right"></span>').prop('disabled', false);
                 }
-
-                // 2. Send donation data to the backend to create a payment link.
-                const response = await fetch('/api/create-payment', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                if (!response.ok) {
-                    // Try to get a specific error message from the server response
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || `HTTP error! Status: ${response.status}`);
-                }
-
-                const data = await response.json();
-
-                // 3. Redirect to the payment gateway if a link is received.
-                if (data.paymentLink) {
-                    window.location.href = data.paymentLink;
-                } else {
-                    // This case handles if the server responds 200 OK but without a payment link.
-                    throw new Error(data.error || 'Failed to create payment session.');
-                }
-
-            } catch (error) {
-                console.error('Form submission error:', error);
-                // Provide a more user-friendly error message.
-                alertMsg.html(`Error: ${error.message || "Something went wrong. Please try again."}`).fadeIn();
-
-                // Re-enable the button on failure so the user can try again.
-                submitBtn.html('Proceed to Donate<span class="lnr lnr-arrow-right"></span>').prop('disabled', false);
+            } else {
+                // --- Handle Contact Message ---
+                // Use the same EmailJS service and template, but the content will be different
+                // Ensure your template `template_7ogb27c` can handle an empty amount and has a place for {{subject}}.
+                emailjs.send('service_t3g6beo', 'template_ylyzb89', formData)
+                    .then(function() {
+                        alertMsg.html("Thank you! Your message has been sent successfully.").addClass('text-success').fadeIn();
+                        form.trigger('reset');
+                        submitBtn.html('Proceed to Donate<span class="lnr lnr-arrow-right"></span>').prop('disabled', false);
+                    }, function(error) {
+                        console.error('EmailJS Error:', error);
+                        alertMsg.html("Oops! Something went wrong. Please try again.").addClass('text-danger').fadeIn();
+                        submitBtn.html('Proceed to Donate<span class="lnr lnr-arrow-right"></span>').prop('disabled', false);
+                    });
             }
+
         });
     }
 });

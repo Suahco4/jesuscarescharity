@@ -1,36 +1,33 @@
 $(document).ready(function() {
     "use strict";
 
-    const contactForm = $('#contactForm'); // The contact form
+    const contactForm = $('#contactForm');
 
-    // Only execute if the contact form exists.
     if (contactForm.length) {
-        // Initialize EmailJS with your Public Key.
-        emailjs.init("AkK_OG-iKP7iUGHHX"); // This is your public key.
+        // EmailJS is initialized in main.js or payment.js, no need to re-initialize.
 
         const submitBtn = contactForm.find('.submit-btn');
         const alertMsg = contactForm.find('.alert-msg');
 
-        // Handle the form submission event.
         contactForm.on('submit', function(e) {
-            e.preventDefault(); // Prevent the default form submission.
+            e.preventDefault();
 
-            // Update UI to show processing state.
-            submitBtn.html('Sending...');
+            const originalBtnText = submitBtn.html();
+            submitBtn.prop('disabled', true).html('Sending...');
             alertMsg.fadeOut();
 
-            // Send form data using EmailJS.
-            // Service ID: service_t3g6beo
-            // Template ID: template_7ogb27c
+            // Service ID: service_t3g6beo, Template ID: template_7ogb27c
             emailjs.sendForm('service_t3g6beo', 'template_7ogb27c', this)
                 .then(function() {
-                    alertMsg.html("Thank you! Your message has been sent successfully.").addClass('text-success').fadeIn();
+                    alertMsg.removeClass('text-danger').addClass('text-success').html("Thank you! Your message has been sent successfully.").fadeIn();
                     contactForm.trigger('reset');
-                    submitBtn.html('Send Message');
+                    $('.amount-btn').removeClass('active'); // Also reset amount buttons
                 }, function(error) {
                     console.error('EmailJS Error:', error);
-                    alertMsg.html("Oops! Something went wrong. Please try again.").addClass('text-danger').fadeIn();
-                    submitBtn.html('Send Message');
+                    alertMsg.removeClass('text-success').addClass('text-danger').html("Oops! Something went wrong. Please try again.").fadeIn();
+                })
+                .finally(function() {
+                    submitBtn.prop('disabled', false).html(originalBtnText);
                 });
         });
     }

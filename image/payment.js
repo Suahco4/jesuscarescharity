@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize EmailJS
+    (function(){
+        emailjs.init("AkK_OG-iKP7iUGHHX"); // Replace with your EmailJS User ID
+    }());
+
     const paymentForm = document.getElementById('paymentForm');
     if (!paymentForm) return;
 
@@ -10,9 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Get amount from URL query parameter
     const urlParams = new URLSearchParams(window.location.search);
     const amountFromUrl = urlParams.get('amount');
+    const nameFromUrl = urlParams.get('name');
+    const emailFromUrl = urlParams.get('email');
+
     if (amountFromUrl) {
         amountInput.value = amountFromUrl;
     }
+
 
     paymentForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -24,20 +33,32 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        showMessage('Processing your payment...', 'info');
+        const submitButton = paymentForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.innerHTML = 'Sending...';
 
-        try {
-            // This is a placeholder for a real payment integration.
-            console.log(`Submitting for ${paymentMethod}:`, { amount, customerPhone: phone });
-            showMessage(`Redirecting to ${paymentMethod} for confirmation...`, 'success');
-            
-            setTimeout(() => {
-                alert(`This is a demo. In a real application, you would be redirected to ${paymentMethod}.`);
-            }, 2000);
-        } catch (error) {
-            showMessage('An error occurred. Please try again.', 'error');
-            console.error('Payment error:', error);
-        }
+        const templateParams = {
+            payment_method: paymentMethod,
+            amount_sent: amount,
+            phone_number: phone,
+            donor_name: nameFromUrl || 'N/A',
+            donor_email: emailFromUrl || 'N/A'
+        };
+
+        // Replace with your EmailJS Service ID and Template ID
+        emailjs.send('service_t3g6beo', 'template_ylyzb89', templateParams)
+            .then(function(response) {
+               console.log('SUCCESS!', response.status, response.text);
+               showMessage('Thank you! Your confirmation has been sent.', 'success');
+               paymentForm.reset();
+               submitButton.disabled = false;
+               submitButton.innerHTML = 'Confirm Donation<span class="lnr lnr-arrow-right"></span>';
+            }, function(error) {
+               console.log('FAILED...', error);
+               showMessage('Oops! Something went wrong. Please try again.', 'error');
+               submitButton.disabled = false;
+               submitButton.innerHTML = 'Confirm Donation<span class="lnr lnr-arrow-right"></span>';
+            });
     });
 
     function showMessage(message, type) {
