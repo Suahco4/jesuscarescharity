@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Replace with your EmailJS Service ID and Template ID
             const serviceID = 'service_t3g6beo';
-            const templateID = 'template_7ogb27c';
+            const templateID = 'template_7ogb27c'; // Your contact form template
 
             const resultDiv = document.getElementById('footerContactResult');
             resultDiv.innerHTML = '<p>Sending...</p>';

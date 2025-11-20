@@ -11,6 +11,7 @@ $(document).ready(function(){
 	const $mainNav = $("#mainNav");
 	const $menuBar = $(".menu-bar");
 	const $backToTop = $('.back-to-top');
+	const $preloader = $('#preloader');
 
 	// =========================================================================
 	// 2. Initial Setup and Calculations
@@ -29,6 +30,13 @@ $(document).ready(function(){
 	// =========================================================================
 	// 3. Event Listeners
 	// =========================================================================
+
+	// -------- Page Preloader ----------//
+	$window.on('load', function() {
+		if ($preloader.length) {
+			$preloader.fadeOut('slow', function() { $(this).remove(); });
+		}
+	});
 
 	// -------- Header Scroll Class Toggling ----------//
 	let lastScrollTop = 0;

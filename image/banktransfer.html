@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Transfer Details</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        body {
+            background-color: #f9f9ff;
+            font-family: 'Poppins', sans-serif;
+        }
+        .transfer-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            overflow: hidden; /* To keep border-radius on top header */
+        }
+        .transfer-header {
+            padding: 30px;
+            background-image: -moz-linear-gradient(0deg, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
+            background-image: -webkit-linear-gradient(0deg, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
+            background-image: -ms-linear-gradient(0deg, #f40f68 0%, #f86e3d 55%, #fbcd11 100%);
+            color: #fff;
+        }
+        .transfer-header h1 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .transfer-body {
+            padding: 30px;
+        }
+        .transfer-details {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .transfer-details p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        .copy-number-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .number-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-top: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #333;
+        }
+        .copy-btn-small {
+            background: transparent;
+            border: none;
+            color: #555;
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .transfer-details strong {
+            color: #222;
+            font-weight: 600;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 150px;
+        }
+        .back-to-donate-btn {
+            border: 1px solid #ddd;
+            color: #555;
+            background: transparent;
+        }
+        .back-to-donate-btn:hover {
+            background: #f9f9ff;
+            color: #222;
+            border-color: #ccc;
+        }
+        .copy-feedback-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #222;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, bottom 0.3s;
+        }
+        .copy-feedback-toast.show {
+            opacity: 1;
+            visibility: visible;
+            bottom: 40px;
+        }
+        .detail-icon {
+            margin-right: 10px;
+            color: #f86e3d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <div class="transfer-container">
+        <div class="transfer-header">
+            <div class="logo">
+                <img src="../img/logo.png" alt="Jesus Cares Charity Logo">
+            </div>
+            <h1>Bank Transfer Details</h1>
+            <p>Please use the following details to make a bank transfer. Your support is greatly appreciated!</p>
+        </div>
+        <div class="transfer-body">
+            <div class="transfer-details">
+                <p><i class="fa fa-university detail-icon" aria-hidden="true"></i><strong>Bank Name:</strong> INTERNATIONAL BANK (LIBERIA) LTD</p>
+                <p><i class="fa fa-user detail-icon" aria-hidden="true"></i><strong>Account Name:</strong> Jesus Cares Charity</p>            
+                <div class="copy-number-container">
+                    <strong><i class="fa fa-hashtag detail-icon" aria-hidden="true"></i>Account Number:</strong>
+                    <div class="number-box">
+                        <span id="bankAccountNumber">01521811536730102</span>
+                        <button onclick="copyToClipboard('bankAccountNumber', 'Account number')" class="copy-btn-small" aria-label="Copy bank account number"><i class="fa fa-copy"></i></button>
+                    </div>
+                </div>
+                <div class="copy-number-container">
+                    <strong><i class="fa fa-barcode detail-icon" aria-hidden="true"></i>Swift Code:</strong>
+                    <div class="number-box">
+                        <span id="swiftCode">IBLRLRLM</span>
+                        <button onclick="copyToClipboard('swiftCode', 'SWIFT code')" class="copy-btn-small" aria-label="Copy SWIFT code"><i class="fa fa-copy"></i></button>
+                    </div>
+                </div>
+                <div class="copy-number-container">
+                    <strong><i class="fa fa-map-marker detail-icon" aria-hidden="true"></i>Branch:</strong>
+                    <div class="number-box">
+                        <span id="branchName">Tubman Boulevard Between 11th and 12th Streets</span>
+                        <button onclick="copyToClipboard('branchName', 'Branch name')" class="copy-btn-small" aria-label="Copy branch name"><i class="fa fa-copy"></i></button>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-4">After making the transfer, please <a href="mailto:jesuscarescharity53@gmail.com">email us</a> with the transaction details so we can acknowledge your donation.</p>
+            <a href="../index.html#donate" class="primary-btn back-to-donate-btn mt-4">Back to Donate</a>
+        </div>
+    </div>
+
+    <div id="copy-feedback" class="copy-feedback-toast"></div>
+
+    <script src="../js/vendor/jquery-2.2.4.min.js"></script>
+
+    <script>
+        function copyToClipboard(elementId, itemType) {
+            var elementToCopy = document.getElementById(elementId);
+            var textToCopy = elementToCopy.innerText;
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                var feedback = document.getElementById('copy-feedback');
+                feedback.textContent = 'Copied ' + itemType.toLowerCase() + '!';
+                feedback.classList.add('show');
+                setTimeout(function() { feedback.classList.remove('show'); }, 2500);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+                alert('Failed to copy ' + itemType.toLowerCase() + '. Please copy it manually.');
+            });
+        }
+    </script>
+	<script>
+		$(window).on('load', function() {
+			if ($('#preloader').length) {
+				$('#preloader').fadeOut('slow', function() { $(this).remove(); });
+			}
+		});
+	</script>
+</body>
+</html>

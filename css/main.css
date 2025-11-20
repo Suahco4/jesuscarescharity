@@ -303,8 +303,10 @@ nav a:hover { color: #f41665; }
 .donate-area .contact-right .payment-method { color: #ddd; margin-top: 30px; }
 .payment-logo { margin: 0 10px; transition: transform .2s ease; }
 .payment-logo:hover { transform: scale(1.1); }
-
-
+.payment-logo {
+    max-width: 100%; /* Make sure images don't exceed their container */
+    height: auto;    /* Maintain aspect ratio */
+}
 /* Donation Amount Buttons */
 .amount-buttons .amount-btn {
     background: #fff;
@@ -355,6 +357,37 @@ nav a:hover { color: #f41665; }
     z-index: 998;
     transition: all 0.4s;
 }
+
+/*=================================================================
+	Preloader
+=================================================================*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff; /* Opaque white background */
+    z-index: 9999; /* Make sure it's on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #f86e3d; /* Orange from your gradient */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
 /*=================================================================
 	6. Plugin Styles (Swiper, etc.)
