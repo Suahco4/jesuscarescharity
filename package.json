@@ -1,0 +1,26 @@
+{
+  "name": "jesuscarescharity-main",
+  "version": "1.0.0",
+  "description": "Charity website for Jesus Cares Charity.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm-run-all --parallel build:*",
+    "build:css": "cleancss -o dist/css/style.min.css css/linearicons.css css/font-awesome.min.css css/magnific-popup.css css/nice-select.css css/bootstrap.css css/main.css",
+    "build:js": "uglifyjs -o dist/js/bundle.min.js --compress --mangle -- js/vendor/jquery-2.2.4.min.js js/vendor/bootstrap.min.js js/jquery.ajaxchimp.min.js js/jquery.nice-select.min.js js/parallax.min.js js/jquery.magnific-popup.min.js js/main.js js/donation.js js/contact.js",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:css": "npm run build:css -- --watch",
+    "watch:js": "npm run build:js -- --watch"
+  },
+  "keywords": [
+    "charity",
+    "non-profit",
+    "liberia"
+  ],
+  "author": "Suahco4",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "npm-run-all": "^4.1.5",
+    "uglify-js": "^3.17.4"
+  }
+}
