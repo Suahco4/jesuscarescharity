@@ -21,13 +21,15 @@
     <!-- Author Meta -->
     <meta name="author" content="Suahco4">
     <!-- Meta Description -->
-    <meta name="description" content="Charity">
+    <meta name="description" content="Jesus Cares Charity is a non-profit in Liberia dedicated to the well-being of vulnerable children. Join us to restore hope through education, healthcare, and support.">
     <!-- Meta Keyword -->
     <meta name="keywords" content="Charity, Children, Trinity">
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Jesus Cares Charity</title>
+    <title>Jesus Cares Charity | Restoring Hope for Vulnerable Children in Liberia</title>
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.jesuscarescharity.org/" />
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!-- CSS ============================================= -->
@@ -49,6 +51,14 @@
 			width: auto;  /* Maintain aspect ratio */
 		}
 	</style>
+
+	<script>
+		// Redirect non-www to www for canonical URL
+		if (window.location.hostname.slice(0, 4) !== 'www.' && window.location.hostname !== 'localhost' && !/^\d{1,3}(\.\d{1,3}){3}$/.test(window.location.hostname)) {
+			window.location.protocol + "//" + "www." + window.location.hostname + window.location.pathname + window.location.search;
+		}
+	</script>
+
 </head>
 		<body>
 			<!-- Preloader -->
@@ -63,7 +73,7 @@
 						<div class="header-top d-flex justify-content-between align-items-center">
 							<div class="logo">
 								<a href="#home" title="Go to Home">
-									<img src="img/logo.png" alt="Jesus Cares Charity logo">
+									<img src="img/logo.png" alt="Jesus Cares Charity logo" title="Jesus Cares Charity logo">
 									<h2 class="logo-title">Jesus Cares Charity</h2>
 								</a>
 							</div>
@@ -105,15 +115,15 @@
 			<!-- Start about Area -->
 			<section class="about-area" id="about">
 				<div class="container-fluid">
-					<!--<div class="row d-flex justify-content-end align-items-center">
+					<div class="row d-flex justify-content-end align-items-center">
 						<div class="col-lg-6 col-md-12 about-left no-padding" data-aos="fade-right">
-							<img class="img-fluid" src="img/about-img.jpg" alt="A close-up of several hands of different skin tones stacked together in unity.">
-						</div>-->
+							<img class="img-fluid" src="img/about-img.jpg" alt="A close-up of several hands of different skin tones stacked together in unity." title="Unity and Support">
+						</div>
 						<div class="col-lg-6 col-md-12 about-right" data-aos="fade-left">
-							<h1 class="text-white">
+							<h2 class="text-white">
 								A Heart for the Helpless,<br>
 								A Hope for the Future
-							</h1>
+							</h2>
 							<p class="text-white">
 								We are the relief and humanitarian arm of Trinity Outreach Ministries Inc., dedicated to the holistic development, protection, and well-being of children in Liberia. Our mission is to restore hope and build a brighter future for the most vulnerable through compassion, integrity, and unwavering support.
 							</p>
@@ -154,7 +164,7 @@
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-8 pb-80 header-text" data-aos="fade-up">
-							<h1>They need your Help</h1>
+							<h2>They need your Help</h2>
 							<p>
 							Forgotten children, starving families, and broken dreams haunt its pages. Each click reveals heart-wrenching stories of loss and longing. <br />Will you turn away, or extend a hand to mend the world's quiet sorrows?
 							</p>
@@ -166,7 +176,7 @@
 								<a href="projects.html" title="View project details">
 									<div class="content">
 											<div class="content-overlay"></div>
-											<img class="content-image img-fluid d-block mx-auto" src="Project Images/IMG11.jpg" alt="Jesus Cares Charity launching a new school project in Taquoi town, Bomi county.">
+											<img class="content-image img-fluid d-block mx-auto" src="Project Images/IMG11.jpg" alt="Jesus Cares Charity launching a new school project in Taquoi town, Bomi county." title="School Project in Bomi County">
 											<div class="content-details fadeIn-bottom">
 												<h4 class="text-white">School Project in Bomi County</h4>
 											</div>
@@ -179,7 +189,7 @@
 								<a href="projects.html" title="View project details">
 									<div class="content">
 											<div class="content-overlay"></div>
-											<img class="content-image img-fluid d-block mx-auto" src="Project Images/IMG2.jpg" alt="A group of boys in front of a Jesus Cares Charity banner, representing healthcare.">
+											<img class="content-image img-fluid d-block mx-auto" src="Project Images/IMG2.jpg" alt="A group of boys in front of a Jesus Cares Charity banner, representing healthcare." title="Healthcare & Nutrition">
 											<div class="content-details fadeIn-bottom">
 												<h4 class="text-white">Healthcare & Nutrition</h4>
 											</div>
@@ -201,7 +211,7 @@
 				<div class="container">
 					<div class="row d-flex justify-content-center" data-aos="fade-up">
 						<div class="col-lg-8 col-sm-12 pb-80 header-text text-center">
-							<h1>Donate Now</h1>
+							<h2>Donate Now</h2>
 							<p>
 								Your support changes lives! With just $10, you can feed a family for a week. <br> Join thousands who've made a difference—donate now and see the impact. Every gift counts. Click here to give securely. Thank you!
 							</p>
@@ -243,21 +253,21 @@
 									<div class="mobile-money-option d-inline-block mx-2">
 										<a id="orange-money-link" href="image/orangemoney.html" title="Pay with Orange Money">
 											<picture>
-												<img src="image/payment2.png" alt="Orange Money logo" class="payment-logo">
+												<img src="image/payment2.png" alt="Orange Money logo" class="payment-logo" title="Donate with Orange Money">
 											</picture>
 										</a>
 									</div>
 									<div class="mobile-money-option d-inline-block mx-2">
 										<a id="mtn-money-link" href="image/mtnmoney.html" title="Pay with MTN Mobile Money">
 											<picture>
-												<img src="image/payment3.png" alt="MTN Mobile Money logo" class="payment-logo">
+												<img src="image/payment3.png" alt="MTN Mobile Money logo" class="payment-logo" title="Donate with MTN Mobile Money">
 											</picture>
 										</a>
 									</div>
 									<div class="mobile-money-option d-inline-block mx-2">
 										<a id="bank-transfer-link" href="image/banktransfer.html" title="Pay with Bank Transfer">
 											<picture>
-												<img src="image/international_bank_liberia_limited_logo.jpg" alt="Bank Transfer logo" class="payment-logo">
+												<img src="image/international_bank_liberia_limited_logo.jpg" alt="Bank Transfer logo" class="payment-logo" title="Donate with Bank Transfer">
 											</picture>
 										</a>
 									</div>
@@ -274,7 +284,7 @@
 				<div class="container">
 					<div class="row d-flex justify-content-center" data-aos="fade-up">
 						<div class="col-lg-8 col-sm-12 pb-80 header-text text-center">
-							<h1>Contact Us</h1>
+							<h2>Contact Us</h2>
 							<p>
 								Have a question or want to get in touch? Fill out the form below and we'll get back to you as soon as possible.
 							</p>
