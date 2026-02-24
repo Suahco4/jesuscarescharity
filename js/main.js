@@ -137,4 +137,18 @@ $(document).ready(function(){
 
 	// Initialize Bootstrap Tabs (if any are used)
 	$('.nav-item a:first').tab('show');
+
+	// Initialize Owl Carousel for Projects
+	if ($('.active-project-carousel').length) {
+		$('.active-project-carousel').owlCarousel({
+			items: 1,
+			loop: true,
+			margin: 30,
+			dots: true,
+			autoplay: true,
+			responsive: {
+				768: { items: 2 }
+			}
+		});
+	}
  });
