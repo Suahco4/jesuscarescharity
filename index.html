@@ -1,418 +1,71 @@
 <!DOCTYPE html>
-	<html lang="en-us" class="no-js">
-		<head>
-    <!-- Mobile Specific Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-			<!-- Favicon -->
-			<link rel="icon" type="image/x-icon" href="favicon.ico">
-			<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-			<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-			
-			<!-- Apple Touch Icons -->
-			<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-			
-			<!-- Android -->
-			<link rel="manifest" href="site.webmanifest">
-			
-			<!-- Windows -->
-			<meta name="msapplication-TileColor" content="#ffffff">
-			<meta name="msapplication-TileImage" content="mstile-144x144.png">
-			<meta name="theme-color" content="#ffffff">
-    <!-- Author Meta -->
-    <meta name="author" content="Suahco4">
-    <!-- Meta Description -->
-    <meta name="description" content="Jesus Cares Charity is a non-profit in Liberia dedicated to the well-being of vulnerable children. Join us to restore hope through education, healthcare, and support.">
-    <!-- Meta Keyword -->
-    <meta name="keywords" content="Charity, Children, Trinity">
-    <!-- meta character set -->
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <!-- Site Title -->
-    <title>Jesus Cares Charity | Hope for Vulnerable Children in Liberia</title>
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://www.jesuscarescharity.org/jesuscarescharity/" />
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-    <!-- CSS ============================================= -->
-    <link rel="stylesheet" href="css/linearicons.css"> <!-- Fixed typo: removed extra = -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-			
-    <!-- sitemap -->
-	
-
-	<style>
-		.payment-logo {
-			height: 40px; /* Set a consistent height for all payment logos */
-			width: auto;  /* Maintain aspect ratio */
-		}
-	</style>
-
-	<script>
-		// Redirect non-www to www for canonical URL
-		if (window.location.hostname.slice(0, 4) !== 'www.' && window.location.hostname !== 'localhost' && !/^\d{1,3}(\.\d{1,3}){3}$/.test(window.location.hostname)) {
-			window.location.protocol + "//" + "www." + window.location.hostname + window.location.pathname + window.location.search;
-		}
-	</script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Cards - Emmanuel Suah Academy</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="EduResult" />
+    <link rel="manifest" href="site.webmanifest" />
 </head>
-		<body>
-			<!-- Preloader -->
-			<div id="preloader">
-				<div class="loader"></div>
-			</div>
+<body class="min-h-screen flex items-center justify-center p-6">
+    <div class="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row fade-in h-[500px]">
+        
+        <!-- Left Side: Branding -->
+        <div class="w-full md:w-1/2 bg-indigo-600 p-12 text-white flex flex-col justify-center items-center text-center">
+            <div class="w-24 h-24 mb-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                <i class="fa-solid fa-graduation-cap text-5xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold mb-2">Emmanuel Suah Academy</h1>
+            <p class="text-indigo-100 mb-8">Report Cards</p>
+            <p class="text-sm text-indigo-200 leading-relaxed">
+                Welcome to the official grading portal. Select your access portal below to continue.
+            </p>
+        </div>
 
-			<!-- Start Header Area -->
-			<header class="default-header">
-				<div class="container">
-					<div class="header-wrap">
-						<div class="header-top d-flex justify-content-between align-items-center">
-							<div class="logo">
-								<a href="#home" title="Go to Home">
-									<img src="img/logo.png" alt="Jesus Cares Charity logo" title="Jesus Cares Charity logo">
-									<h2 class="logo-title">Jesus Cares Charity</h2>
-								</a>
-							</div>
-							<div class="main-menubar d-flex align-items-center">
-    <nav id="mainNav" class="hide mobile-menu">
-        <a href="#home">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="#about">About</a>
-        <a href="#donate">Donate</a>
-		<a href="#donate">Contact</a>
-    </nav>
-    <button class="menu-bar" id="menuBar" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mainNav">
-        <span class="lnr lnr-menu"></span>
-    </button>
-</div>
-						</div>
-					</div>
-				</div>
-			</header>
-			<!-- End Header Area -->
-<!-- Add this to the <head> of your HTML file -->
-<!-- start banner Area -->
-			<section class="banner-area relative" id="home">
-				<div class="overlay overlay-bg"></div>
-				<div class="container" data-aos="fade-in">
-						<div class="row fullscreen align-items-center justify-content-start banner-row-height">
-							<div class="banner-content col-lg-9 col-md-12">
-								<h1>
-									Help Us <br>
-									To Help The World
-								</h1>
-								<a href="#donate" class="head-btn btn text-uppercase">Donate Now</a>
-							</div>
-						</div>
-				</div>
-			</section>
-			<!-- End banner Area -->
+        <!-- Right Side: Navigation -->
+        <div class="w-full md:w-1/2 p-12 flex flex-col justify-center gap-6 bg-gray-50">
+            <a href="student.html" class="group relative flex items-center p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-indigo-500 hover:shadow-md transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                    <i class="fa-regular fa-user text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-lg font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">Student Portal</h3>
+                    <p class="text-sm text-gray-500">View report cards and results</p>
+                </div>
+                <i class="fa-solid fa-chevron-right absolute right-6 text-gray-300 group-hover:text-indigo-500"></i>
+            </a>
 
-			<!-- Start about Area -->
-			<section class="about-area" id="about">
-				<div class="container-fluid">
-					<div class="row d-flex justify-content-end align-items-center">
-						<div class="col-lg-6 col-md-12 about-left no-padding" data-aos="fade-right">
-							<img class="img-fluid" src="img/about-img.jpg" alt="A close-up of several hands of different skin tones stacked together in unity." title="Unity and Support">
-						</div>
-						<div class="col-lg-6 col-md-12 about-right" data-aos="fade-left">
-							<h2 class="text-white">
-								A Heart for the Helpless,<br>
-								A Hope for the Future
-							</h2>
-							<p class="text-white">
-								We are the relief and humanitarian arm of Trinity Outreach Ministries Inc., dedicated to the holistic development, protection, and well-being of children in Liberia. Our mission is to restore hope and build a brighter future for the most vulnerable through compassion, integrity, and unwavering support.
-							</p>
-							<div class="about-features">
-								<div class="feature-item d-flex align-items-start">
-									<i class="fa fa-child fa-2x mr-3"></i>
-									<div>
-										<h4>Child Development</h4>
-										<p>Fostering holistic growth and education for every child.</p>
-									</div>
-								</div>
-								<div class="feature-item d-flex align-items-start">
-									<i class="fa fa-shield fa-2x mr-3"></i>
-									<div>
-										<h4>Protection & Advocacy</h4>
-										<p>Fighting against violence, trafficking, and all forms of abuse.</p>
-									</div>
-								</div>
-								<div class="feature-item d-flex align-items-start">
-									<i class="fa fa-home fa-2x mr-3"></i>
-									<div>
-										<h4>Community Support</h4>
-										<p>Providing food, shelter, and healthcare to vulnerable families.</p>
-									</div>
-								</div>
-							</div>
-							<a href="about us.html" title="Learn more about us" class="btn-black mt-30 text-uppercase">
-								Learn More<span class="lnr lnr-arrow-right"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- End about Area -->
-
-			<!-- Start project Area -->
-			<section class="project-area section-gap" id="project">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="col-md-8 pb-80 header-text" data-aos="fade-up">
-							<h2>They need your Help</h2>
-							<p>
-							Forgotten children, starving families, and broken dreams haunt its pages. Each click reveals heart-wrenching stories of loss and longing. <br />Will you turn away, or extend a hand to mend the world's quiet sorrows?
-							</p>
-						</div>
-					</div>
-					<div class="row justify-content-center">
-						<div class="col-lg-4 col-md-6 project-wrap" data-aos="fade-up" data-aos-delay="100">
-							<div class="single-project">
-								<a href="projects.html" title="View project details">
-									<div class="content">
-											<div class="content-overlay"></div>
-											<img class="content-image img-fluid d-block mx-auto" src="Project Images/IMG11.jpg" alt="Jesus Cares Charity launching a new school project in Taquoi town, Bomi county." title="School Project in Bomi County">
-											<div class="content-details fadeIn-bottom">
-												<h4 class="text-white">School Project in Bomi County</h4>
-											</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 project-wrap" data-aos="fade-up" data-aos-delay="200">
-							<div class="single-project">
-								<a href="projects.html" title="View project details">
-									<div class="content">
-											<div class="content-overlay"></div>
-											<img class="content-image img-fluid d-block mx-auto" src="Project Images/IMG2.jpg" alt="A group of boys in front of a Jesus Cares Charity banner, representing healthcare." title="Healthcare & Nutrition">
-											<div class="content-details fadeIn-bottom">
-												<h4 class="text-white">Healthcare & Nutrition</h4>
-											</div>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="row d-flex justify-content-center" data-aos="fade-up">
-						<a href="projects.html" class="primary-btn mt-50">View All Projects<span class="lnr lnr-arrow-right"></span></a>
-					</div>
-				</div>
-			</section>
-			<!-- End project Area -->
-
-			<!-- Start donate Area -->
-			<section class="donate-area relative section-gap" id="donate">
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row d-flex justify-content-center" data-aos="fade-up">
-						<div class="col-lg-8 col-sm-12 pb-80 header-text text-center">
-							<h2>Donate Now</h2>
-							<p>
-								Your support changes lives! With just $10, you can feed a family for a week. <br> Join thousands who've made a difference—donate now and see the impact. Every gift counts. Click here to give securely. Thank you!
-							</p>
-						</div>
-					</div>
-					<div class="row d-flex justify-content-center" data-aos="fade-up">						
-						<div class="col-lg-10 contact-right">
-							<form class="booking-form" id="contactForm">
-                                <div class="row">
-                                    <div class="col-lg-6 d-flex flex-column form-group">
-                                        <input name="donor_name" id="donor_name" placeholder="Enter your name" class="form-control mt-20" required type="text">
-                                    </div>
-                                    <div class="col-lg-6 d-flex flex-column form-group">
-                                        <input name="donor_email" id="donor_email" placeholder="Enter email address" class="form-control mt-20" required type="email">
-                                    </div>
-                                    <div class="col-lg-6 d-flex flex-column form-group">
-                                        <input name="phone_number" id="phone_number" placeholder="Enter your phone number" class="form-control mt-20" required type="tel">
-                                    </div>
-                                    <div class="col-lg-6 d-flex flex-column form-group">
-                                        <input name="amount_sent" id="amount_sent" placeholder="Amount Sent (LRD)" class="form-control mt-20" required type="number" min="1">
-                                    </div>
-                                    <div class="col-lg-12 d-flex flex-column form-group">
-                                        <select name="payment_method" id="payment_method" class="form-control mt-20" required>
-                                            <option value="" disabled selected>Select Payment Method</option>
-                                            <option value="Orange Money">Orange Money</option>
-                                            <option value="Bank Transfer">Bank Transfer</option>
-                                            <option value="MTN Mobile Money">MTN Mobile Money</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-12 d-flex justify-content-end send-btn">
-                                        <button type="submit" class="primary-btn footer-btn mt-20 text-uppercase w-100">Comfirm Donation</button>
-                                    </div>
-                                    <div class="alert-msg" aria-live="polite"></div>
-                                </div>
-					  		</form>
-							<div class="payment-method text-center"> 
-								<p class="text-white mt-4 mb-3">Donate directly using one of the methods below:</p>
-								<div class="mobile-money-info">
-									<div class="mobile-money-option d-inline-block mx-2">
-										<a id="orange-money-link" href="image/orangemoney.html" title="Pay with Orange Money">
-											<picture>
-												<img src="image/payment2.png" alt="Orange Money logo" class="payment-logo" title="Donate with Orange Money">
-											</picture>
-										</a>
-									</div>
-									<div class="mobile-money-option d-inline-block mx-2">
-										<a id="mtn-money-link" href="image/mtnmoney.html" title="Pay with MTN Mobile Money">
-											<picture>
-												<img src="image/payment3.png" alt="MTN Mobile Money logo" class="payment-logo" title="Donate with MTN Mobile Money">
-											</picture>
-										</a>
-									</div>
-									<div class="mobile-money-option d-inline-block mx-2">
-										<a id="bank-transfer-link" href="image/banktransfer.html" title="Pay with Bank Transfer">
-											<picture>
-												<img src="image/international_bank_liberia_limited_logo.jpg" alt="Bank Transfer logo" class="payment-logo" title="Donate with Bank Transfer">
-											</picture>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- End donate Area -->
-
-			<!-- Start contact-form Area -->
-			<section class="contact-form-area section-gap">
-				<div class="container">
-					<div class="row d-flex justify-content-center" data-aos="fade-up">
-						<div class="col-lg-8 col-sm-12 pb-80 header-text text-center">
-							<h2>Contact Us</h2>
-							<p>
-								Have a question or want to get in touch? Fill out the form below and we'll get back to you as soon as possible.
-							</p>
-						</div>
-					</div>
-					<div class="row d-flex justify-content-center" data-aos="fade-up">
-						<div class="col-lg-8">
-							<form id="footerContactForm">
-								<div class="form-group">
-									<input type="text" class="form-control" id="footerName" name="name" placeholder="Your Name" required>
-								</div>
-								<div class="form-group">
-									<input type="email" class="form-control" id="footerEmail" name="email" placeholder="Your Email" required>
-								</div>
-								<div class="form-group">
-									<textarea class="form-control" id="footerMessage" name="message" rows="5" placeholder="Your Message" required></textarea>
-								</div>
-								<div class="text-center"><button type="submit" class="primary-btn footer-btn">Send Message</button></div>
-							</form>
-							<div id="footerContactResult" class="mt-3 text-center"></div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- End contact-form Area -->
-
-			<!-- start footer Area -->
-			<footer class="footer-area section-gap" id="contact">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-4 col-md-6 single-footer-widget" data-aos="fade-up">
-							<h6>About Us</h6>
-							<p>
-								Jesus Cares Charity is the relief and humanitarian arm of Trinity Outreach Ministries Inc, dedicated to the holistic development and protection of children in Liberia.
-							</p>
-							<div class="footer-social">
-								<a href="https://wa.me/+231770217021?text=Hi%20there!%20I'd%20like%20to%20chat." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa fa-whatsapp"></i><span class="sr-only"> (opens in new tab)</span></a>
-								<a href="https://www.facebook.com/share/1Fsd1SANsT/" target="_blank" rel="noopener" aria-label="Visit our Facebook page"><i class="fa fa-facebook"></i><span class="sr-only"> (opens in new tab)</span></a>
-								<a href="https://www.instagram.com/jesus_cares_charity/" target="_blank" rel="noopener" aria-label="Visit our Instagram profile"><i class="fa fa-instagram"></i><span class="sr-only"> (opens in new tab)</span></a>
-								<a href="https://www.youtube.com/@JesusCaresCharity" title="Visit our YouTube channel" target="_blank" rel="noopener" aria-label="Visit our YouTube channel"><i class="fa fa-youtube"></i><span class="sr-only"> (opens in new tab)</span></a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 single-footer-widget" data-aos="fade-up" data-aos-delay="100">
-							<h6>Navigation Links</h6>
-							<div class="row">
-								<div class="col">
-									<ul>
-										<li><a href="index.html#home">Home</a></li>
-										<li><a href="about us.html" title="Learn more about us">About</a></li>
-										<li><a href="projects.html">Projects</a></li>
-									</ul>
-								</div>
-								<div class="col">
-									<ul>
-										<li><a href="index.html#donate">Donate</a></li>
-										<li><a href="our location.html" title="View our location">Location</a></li>
-								<li><a href="index.html#donate">Contact</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 single-footer-widget" data-aos="fade-up" data-aos-delay="200">
-							<h6>Contact Us</h6>
-							<p><i class="fa fa-map-marker mr-2"></i> Harbel Super Market, Twe Farm, Liberia</p>
-							<p><i class="fa fa-phone mr-2"></i> <a href="tel:+231770217021">+231 770 217 021</a></p>
-							<p><i class="fa fa-envelope mr-2"></i> <a href="mailto:jesuscarescharity53@gmail.com">jesuscarescharity53@gmail.com</a></p>
-						</div>
-					</div>
-					<div class="footer-bottom row align-items-center justify-content-center">
-						<p class="footer-text m-0 col-lg-8 col-md-12 text-center">
-							Copyright &copy;<script>document.write(new Date().getFullYear());</script> <strong>Jesus Cares Charity</strong> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.suahco4.online" target="_blank" rel="noopener">Suahco4<span class="sr-only"> (opens in new tab)</span></a>
-						</p>
-					</div>
-				</div>
-			</footer>
-			<!-- End footer Area -->
-
-			<!-- Back to Top Button -->
-			<a href="#" class="back-to-top d-none"><i class="fa fa-chevron-up"></i></a>
-
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>
-			<script src="js/jquery.ajaxchimp.min.js"></script>
-			<script src="js/jquery.nice-select.min.js"></script>
-			<script src="js/parallax.min.js"></script>
-			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>
-			<script src="js/main.js"></script>
-			<script src="js/donation.js"></script>
-			<script src="js/contact.js"></script>
-			<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-			<script>
-	$(document).ready(function() {
-		$('.amount-btn').on('click', function() {
-			const amount = $(this).data('amount');
-			$('#amount_sent').val(amount); // Corrected ID
-			$('.amount-btn').removeClass('active');
-			$(this).addClass('active');
-			updateMobileMoneyLinks(); // Update links when a button is clicked
-		});
-
-		function updateMobileMoneyLinks() {
-			const amount = $('#amount_sent').val();
-			const name = $('#donor_name').val();
-			const phone = $('#phone_number').val();
-
-			var params = new URLSearchParams();
-			if (amount) params.append('amount', amount);
-			if (name) params.append('name', name);
-			if (phone) params.append('phone', phone);
-
-			var queryString = params.toString();
-			var baseUrlOrange = 'image/orangemoney.html';
-			var baseUrlMtn = 'image/mtnmoney.html';
-			var baseUrlBank = 'image/banktransfer.html';
-
-			$('#orange-money-link').attr('href', queryString ? `${baseUrlOrange}?${queryString}` : baseUrlOrange);
-			$('#mtn-money-link').attr('href', queryString ? `${baseUrlMtn}?${queryString}` : baseUrlMtn);
-			$('#bank-transfer-link').attr('href', queryString ? `${baseUrlBank}?${queryString}` : baseUrlBank);
-		}
-
-		// Update links when any relevant field changes
-		$('#amount_sent, #donor_name, #phone_number').on('input', updateMobileMoneyLinks);
-		// Initialize links on page load
-		updateMobileMoneyLinks();
-	});
-</script>
-		</body>
-	</html>
+            <a href="admin.html" class="group relative flex items-center p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-gray-800 hover:shadow-md transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center group-hover:bg-gray-800 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-user-shield text-xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-lg font-bold text-gray-800 group-hover:text-gray-800 transition-colors">Instructor Portal</h3>
+                    <p class="text-sm text-gray-500">Manage grades and students</p>
+                </div>
+                <i class="fa-solid fa-chevron-right absolute right-6 text-gray-300 group-hover:text-gray-800"></i>
+            </a>
+            
+            <div class="mt-4 text-center text-xs text-gray-400">
+                <p>&copy; <span id="copyright-year">2026</span> Emmanuel Suah Academy. All rights reserved.</p>
+                <a href="/superadmin" class="mt-2 inline-block hover:text-indigo-600 transition-colors">Super Admin Access</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
